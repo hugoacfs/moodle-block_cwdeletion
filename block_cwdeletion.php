@@ -80,7 +80,6 @@ class block_cwdeletion extends block_base {
 
         switch ($status->action) {
             case 'delete':
-                echo 'tf';
                 // Showdelete prevents non site admins from seeing this.
                 $showdelete =
                     get_config('block_cwdeletion', 'deleteshowonlysiteadmins') ?? false;
