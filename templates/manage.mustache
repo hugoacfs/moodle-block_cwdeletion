@@ -1,0 +1,34 @@
+{{!
+    This file is part of Moodle - http: //moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http: //www.gnu.org/licenses/>.
+}}
+{{!
+    @template block_cwdeletion/block
+
+    Table of contents for block
+
+    Context variables required for this template:
+    * customhtml - this is the custom HTML defined in settings.
+}}
+<div class="block_cwdeletion_block">
+    <div class="block_cwdeletion_block__items-container ">
+        <p>
+            <b>{{#str}}template_nostatus, block_cwdeletion{{/str}}</b><br>
+            {{#str}}template_manageexplanation, block_cwdeletion{{/str}}<br>
+            {{#linkreportdetails}}<a href="{{linkreportdetails}}">{{#str}}template_reportdetails, block_cwdeletion{{/str}}</a>{{/linkreportdetails}}<br>
+            {{#linkreporttable}}<a href="{{linkreporttable}}">{{#str}}template_coursewranglertable, block_cwdeletion{{/str}}</a>{{/linkreporttable}}
+        </p>
+    </div>
+</div>

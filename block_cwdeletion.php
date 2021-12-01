@@ -43,6 +43,7 @@ class block_cwdeletion extends block_base {
      */
     public function get_content() {
         global $COURSE, $OUTPUT, $USER;
+        $issiteadmin = is_siteadmin($USER->id);
         if ($this->content !== NULL) {
             return $this->content;
         }
@@ -53,11 +54,24 @@ class block_cwdeletion extends block_base {
 
         $status = \tool_coursewrangler\get_course_action_status($COURSE->id) ?? 'Not set.';
 
-        if ($status == false) {
-            return $this->content;
-        }
-
-        if ($status->action != 'delete' && $status->action != 'protect') {
+        if (!isset($status->action) || ($status->action != 'delete' && $status->action != 'protect')) {
+            $showmanage =
+                    get_config('block_cwdeletion', 'showmanageoption') ?? false;
+            if ($issiteadmin && $showmanage) {
+                $linksarray = [];
+                $linksarray['linkreportdetails'] = new moodle_url(
+                        '/admin/tool/coursewrangler/report_details.php',
+                        ['courseid' => $COURSE->id]
+                    );
+                $linksarray['linkreporttable'] = new moodle_url(
+                        '/admin/tool/coursewrangler/table.php'
+                    );
+                $this->content->text =
+                    $OUTPUT->render_from_template(
+                        'block_cwdeletion/manage',
+                        $linksarray
+                    );
+            }
             return $this->content;
         }
 
@@ -66,12 +80,19 @@ class block_cwdeletion extends block_base {
 
         switch ($status->action) {
             case 'delete':
+                echo 'tf';
+                // Showdelete prevents non site admins from seeing this.
+                $showdelete =
+                    get_config('block_cwdeletion', 'deleteshowonlysiteadmins') ?? false;
+                if ($showdelete && !$issiteadmin) {
+                    // return $this->content;
+                }
                 $mustarray = [];
                 $mustarray['status'] = get_string(
                     "report_details_actionstatus_$status->status",
                     'tool_coursewrangler'
                 );
-                if (is_siteadmin($USER->id)) {
+                if ($issiteadmin) {
                     $mustarray['link'] = new moodle_url(
                         '/admin/tool/coursewrangler/report_details.php',
                         ['courseid' => $COURSE->id]
@@ -84,6 +105,12 @@ class block_cwdeletion extends block_base {
                     );
                 break;
             case 'protect':
+                // Showprotect prevents non site admins from seeing this.
+                $showprotect =
+                    get_config('block_cwdeletion', 'protectshowonlysiteadmins') ?? false;
+                if ($showprotect && !$issiteadmin) {
+                    return $this->content;
+                }
                 $this->content->text =
                     $OUTPUT->render_from_template(
                         'block_cwdeletion/protect',

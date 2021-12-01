@@ -40,8 +40,8 @@ $capabilities = [
         'captype'              => 'read',
         'contextlevel'         => CONTEXT_BLOCK,
         'archetypes'           => [
-            'editingteacher'  => CAP_ALLOW,
-            'manager'         => CAP_ALLOW
+            'editingteacher'  => CAP_PROHIBIT,
+            'manager'         => CAP_PROHIBIT
         ],
         'clonepermissionsfrom' => 'moodle/site:manageblocks'
     ],
@@ -50,8 +50,8 @@ $capabilities = [
         'captype'              => 'write',
         'contextlevel'         => CONTEXT_BLOCK,
         'archetypes'           => [
-            'editingteacher'  => CAP_ALLOW,
-            'manager'         => CAP_ALLOW,
+            'editingteacher'  => CAP_PROHIBIT,
+            'manager'         => CAP_PROHIBIT,
             'student'          => CAP_PROHIBIT
             ]
         ]

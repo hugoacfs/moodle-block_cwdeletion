@@ -30,4 +30,16 @@ if ($hassiteconfig) {
     $settings->add(new admin_setting_configcheckbox('block_cwdeletion/showinallcourses',
         get_string('settings_showinallcourses', 'block_cwdeletion'),
         get_string('settings_showinallcourses_desc', 'block_cwdeletion'), 0));
+
+    $settings->add(new admin_setting_configcheckbox('block_cwdeletion/protectshowonlysiteadmins',
+        get_string('settings_protectshowonlysiteadmins', 'block_cwdeletion'),
+        get_string('settings_protectshowonlysiteadmins_desc', 'block_cwdeletion'), 1));
+
+    $settings->add(new admin_setting_configcheckbox('block_cwdeletion/deleteshowonlysiteadmins',
+        get_string('settings_deleteshowonlysiteadmins', 'block_cwdeletion'),
+        get_string('settings_deleteshowonlysiteadmins_desc', 'block_cwdeletion'), 1));
+
+    $settings->add(new admin_setting_configcheckbox('block_cwdeletion/showmanageoption',
+        get_string('settings_showmanageoption', 'block_cwdeletion'),
+        get_string('settings_showmanageoption_desc', 'block_cwdeletion'), 1));
 }

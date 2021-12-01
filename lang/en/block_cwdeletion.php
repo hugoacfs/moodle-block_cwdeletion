@@ -33,9 +33,22 @@ $string['blocktitle'] = 'Deletion Status for this Course';
 $string['settings_showinallcourses'] = 'Show in All Courses';
 $string['settings_showinallcourses_desc'] = 'Show in all courses within Moodle.';
 
+$string['settings_protectshowonlysiteadmins'] = 'Do Not Show \'Protect\'';
+$string['settings_protectshowonlysiteadmins_desc'] = 'Shows the protect status to site admins only.';
+
+$string['settings_deleteshowonlysiteadmins'] = 'Do Not Show \'Delete\'';
+$string['settings_deleteshowonlysiteadmins_desc'] = 'Shows the delete status to site admins only.';
+
+$string['settings_showmanageoption'] = 'Admins See \'Manage\'';
+$string['settings_showmanageoption_desc'] = 'Show or hide the manage block from site admins.';
+
 // Templates.
 $string['template_courseprotected'] = 'This course/page is currently <b>protected</b> from automatic deletion.';
 $string['template_coursedeletion'] = 'This course has been marked for deletion and is scheduled to be deleted soon.';
 $string['template_warning'] = 'WARNING';
 $string['template_currentstatus'] = 'Current Status';
 $string['template_moreinfo'] = 'More Information';
+$string['template_reportdetails'] = 'Course Report Details';
+$string['template_coursewranglertable'] = 'Report Table';
+$string['template_manageexplanation'] = 'Quick links to Course Wrangler tools. Be warned, the report details link might not work, depending if this course exists in the report data.';
+$string['template_nostatus'] = 'This course has no status in Course Wrangler.';

@@ -25,11 +25,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2021112400;
+$plugin->version   = 2021112401;
 $plugin->requires  = 2018120300;
 $plugin->component = 'block_cwdeletion';
-$plugin->release   = '0.1';
-$plugin->maturity  = MATURITY_ALPHA;
+$plugin->release   = '0.2.0';
+$plugin->maturity  = MATURITY_BETA;
 $plugin->dependencies = [
     'tool_coursewrangler' => 2021042210,
 ];
